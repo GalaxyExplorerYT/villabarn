@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вилла Барн — Правила проживания</title>
+  <meta name="description" content="Правила проживания на вилле Барн: комфорт, безопасность и спокойствие для гостей." />
+  <meta property="og:title" content="Вилла Барн — Правила проживания" />
+  <meta property="og:description" content="Соблюдайте правила проживания, чтобы сохранить атмосферу приватности и уюта на вилле Барн." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://villabarn.example/rules" />
+  <meta property="og:image" content="https://villabarn.example/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #f8f4ef;
+      --text-color: #694c3b;
+      --gold-gradient: linear-gradient(135deg, rgba(205, 174, 98, 0.85), rgba(232, 200, 137, 0.9));
+      --card-shadow: 0 24px 40px rgba(105, 76, 59, 0.08);
+      --card-shadow-hover: 0 36px 50px rgba(105, 76, 59, 0.12);
+      --radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Century Gothic', 'Jost', 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header,
+    main,
+    footer {
+      display: block;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(94%, 960px);
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+
+    .logo svg {
+      width: 40px;
+      height: 32px;
+      stroke: currentColor;
+    }
+
+    .logo .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.45rem;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    /* // Hero */
+    .hero {
+      position: relative;
+      padding: 96px 0 72px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 12% 10% auto 10%;
+      height: clamp(220px, 55vw, 380px);
+      background: radial-gradient(circle at top, rgba(105, 76, 59, 0.07), transparent 60%),
+        url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200" fill="none" stroke="%23694C3B" stroke-width="1" stroke-opacity="0.08"%3E%3Cpath d="M10 150 L110 70 L210 100 L310 40"/%3E%3Cpath d="M60 180 L150 110 L250 140 L330 80"/%3E%3Crect x="40" y="40" width="120" height="90" rx="16"/%3E%3Cpath d="M140 40 L200 10 L280 60"/%3E%3C/svg%3E') center/cover no-repeat;
+      opacity: 0.45;
+      z-index: 0;
+      filter: blur(0.2px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0;
+      position: relative;
+      padding-bottom: 1.4rem;
+    }
+
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 2px;
+      background: var(--gold-gradient);
+      border-radius: 999px;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      max-width: 420px;
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* // Rules */
+    .rules-section {
+      padding: 32px 0 72px;
+    }
+
+    .rules-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .rule-card {
+      position: relative;
+      padding: 28px 24px 32px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(105, 76, 59, 0.12);
+      box-shadow: var(--card-shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    .rule-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      transition: border 0.4s ease;
+    }
+
+    .rule-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .rule-card:hover::after {
+      border-image: var(--gold-gradient) 1;
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    .rule-card .icon-wrapper {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: rgba(232, 200, 137, 0.14);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(105, 76, 59, 0.08);
+      transition: transform 0.4s ease;
+    }
+
+    .rule-card:hover .icon-wrapper {
+      transform: translateY(-2px);
+    }
+
+    .rule-card img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .rule-number {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    .rule-text {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 400;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .rule-text strong {
+      font-weight: 600;
+    }
+
+    .rule-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .rules-note {
+      margin-top: 56px;
+      text-align: center;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      opacity: 0.72;
+    }
+
+    /* // Footer */
+    footer {
+      margin-top: auto;
+      padding: 40px 0 48px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .footer-logo svg {
+      width: 28px;
+      height: 24px;
+      stroke: currentColor;
+    }
+
+    .fade-up-init {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .fade-up-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="container hero fade-up-init" id="hero">
+        <!-- // Hero -->
+        <div class="hero-content">
+          <div class="logo" aria-label="Логотип Вилла Барн">
+            <svg viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 36 L6 18 L32 6 L58 18 L58 42" stroke-width="1.5" />
+              <path d="M6 36 H58" stroke-width="1.5" />
+              <path d="M32 6 V42" stroke-width="1.5" />
+            </svg>
+            <span>Вилла</span>
+            <span class="script">Барн</span>
+          </div>
+          <h1 class="hero-title">Правила проживания</h1>
+          <p class="hero-subtitle">Приватная территория спокойствия, комфорта и уюта.</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="rules-section container">
+        <!-- // Rules -->
+        <div class="rules-grid">
+          <article class="rule-card" aria-label="Правило 1. Огонь и курение">
+            <div class="icon-wrapper">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OCA0OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjk0QzNCJyBzdHJva2Utd2lkdGg9JzEuOCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMjQgNiBDMTggMTMgMzIgMTggMjQgMzAgQzIwIDI0IDEyIDIyIDEyIDMwIEMxMiAzNiAxNyA0MCAyNCA0MCBDMzEgNDAgMzYgMzYgMzYgMzAgQzM2IDIyIDI4IDIwIDI0IDYgWicvPjwvc3ZnPg==" alt="" loading="lazy" />
+            </div>
+            <span class="rule-number">01</span>
+            <p class="rule-text"><strong>Огонь и курение</strong><span>— Запрещён открытый огонь в доме и на территории, кроме <strong>зоны гриля</strong>.</span><span>— Курение разрешено <strong>только</strong> в зоне гриля.</span></p>
+          </article>
+
+          <article class="rule-card" aria-label="Правило 2. Тишина и бассейн ночью">
+            <div class="icon-wrapper">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OCA0OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjk0QzNCJyBzdHJva2Utd2lkdGg9JzEuOCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMTIgMTAgVjM4IEwyNiAzMCBIMzQgQTggOCAwIDAgMCAzNCAxNCBIMjYgTDEyIDYnLz48cGF0aCBkPSdNMzYgMTggQTYgNiAwIDAgMSAzNiAzMCcgc3Ryb2tlLXdpZHRoPScxLjUnLz48L3N2Zz4=" alt="" loading="lazy" />
+            </div>
+            <span class="rule-number">02</span>
+            <p class="rule-text"><strong>Тишина и бассейн ночью</strong><span>— Запрещён сильный шум после <strong>22:00</strong> (действует закон о тишине).</span><span>— Запрещено оставлять бассейн открытым на ночь при температуре воздуха ниже <strong>20&nbsp;°C</strong>.</span></p>
+          </article>
+
+          <article class="rule-card" aria-label="Правило 3. Котёл и температура бассейна">
+            <div class="icon-wrapper">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OCA0OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjk0QzNCJyBzdHJva2Utd2lkdGg9JzEuOCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cmVjdCB4PScxMicgeT0nMTInIHdpZHRoPScyNCcgaGVpZ2h0PScyOCcgcng9JzYnLz48cGF0aCBkPSdNMTggMjAgSDMwJyBzdHJva2Utd2lkdGg9JzEuNScvPjxwYXRoIGQ9J00xOCAyNiBIMzAnIHN0cm9rZS13aWR0aD0nMS41Jy8+PHBhdGggZD0nTTE4IDMyIEgzMCcgc3Ryb2tlLXdpZHRoPScxLjUnLz48L3N2Zz4=" alt="" loading="lazy" />
+            </div>
+            <span class="rule-number">03</span>
+            <p class="rule-text"><strong>Котёл и температура бассейна</strong><span>— Запрещено <strong>включать/выключать/настраивать</strong> котёл в доме: он работает на систему отопления бассейна.</span><span>— Регулировать температуру бассейна <strong>самостоятельно запрещено</strong>.</span></p>
+          </article>
+
+          <article class="rule-card" aria-label="Правило 4. Пользование бассейном">
+            <div class="icon-wrapper">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OCA0OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjk0QzNCJyBzdHJva2Utd2lkdGg9JzEuOCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNOCAzMCBDMTIgMjcgMTYgMjcgMjAgMzAgQzI0IDMzIDI4IDMzIDMyIDMwIEMzNiAyNyA0MCAyNyA0NCAzMCcvPjxwYXRoIGQ9J004IDM2IEMxMiAzMyAxNiAzMyAyMCAzNiBDMjQgMzkgMjggMzkgMzIgMzYgQzM2IDMzIDQwIDMzIDQ0IDM2Jy8+PHBhdGggZD0nTTIwIDE4IEwyNCAxMCBMMjggMTgnLz48L3N2Zz4=" alt="" loading="lazy" />
+            </div>
+            <span class="rule-number">04</span>
+            <p class="rule-text"><strong>Пользование бассейном</strong><span>— Запрещено заходить в бассейн в обуви.</span><span>— Запрещено добавлять пенные средства и любые жидкости.</span><span>— Запрещено бросать какие-либо предметы в воду.</span></p>
+          </article>
+
+          <article class="rule-card" aria-label="Правило 5. Баня и печь">
+            <div class="icon-wrapper">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OCA0OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjk0QzNCJyBzdHJva2Utd2lkdGg9JzEuOCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cmVjdCB4PScxNCcgeT0nMTAnIHdpZHRoPScyMCcgaGVpZ2h0PScyOCcgcng9JzYnLz48cGF0aCBkPSdNMjQgMTggQzIwIDIyIDI4IDI0IDI0IDMyJy8+PHBhdGggZD0nTTE4IDM2IEgzMCcgc3Ryb2tlLXdpZHRoPScxLjUnLz48L3N2Zz4=" alt="" loading="lazy" />
+            </div>
+            <span class="rule-number">05</span>
+            <p class="rule-text"><strong>Баня и печь</strong><span>— Запрещено оставлять печь в бане <strong>без контроля</strong>.</span><span>— Запрещено лить на плитку печи любые средства.</span><span>— Масла и воду добавляйте <strong>только</strong> в металлический желоб.</span></p>
+          </article>
+
+          <article class="rule-card" aria-label="Правило 6. Территория и питомцы">
+            <div class="icon-wrapper">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA0OCA0OCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjNjk0QzNCJyBzdHJva2Utd2lkdGg9JzEuOCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMTQgMzQgQzIwIDI2IDI4IDI2IDM0IDM0Jy8+PHBhdGggZD0nTTEwIDI0IEwxNCAxOCcvPjxwYXRoIGQ9J00yMiAyMiBMMjQgMTQnLz48cGF0aCBkPSdNMzQgMjQgTDMwIDE4Jy8+PGNpcmNsZSBjeD0nMTgnIGN5PSczOCcgcj0nMicvPjxjaXJjbGUgY3g9JzMwJyBjeT0nMzgnIHI9JzInLz48L3N2Zz4=" alt="" loading="lazy" />
+            </div>
+            <span class="rule-number">06</span>
+            <p class="rule-text"><strong>Территория и питомцы</strong><span>— Запрещено ломать или пилить ветки хвойных растений на территории.</span><span>— С питомцами: запрещается использовать постельное бельё и <strong>полотенца</strong> для размещения животных.</span><span>— Убирайте за питомцами: продукты их жизнедеятельности не должны оставаться на территории виллы.</span></p>
+          </article>
+        </div>
+        <p class="rules-note">Соблюдение правил — залог комфортного отдыха и сохранности виллы. Спасибо!</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <!-- // Footer -->
+        <div class="logo footer-logo" aria-label="Логотип Вилла Барн">
+          <svg viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 36 L6 18 L32 6 L58 18 L58 42" stroke-width="1.5" />
+            <path d="M6 36 H58" stroke-width="1.5" />
+            <path d="M32 6 V42" stroke-width="1.5" />
+          </svg>
+          <span>Вилла</span>
+          <span class="script">Барн</span>
+        </div>
+        <span>&copy; <span id="current-year"></span> Вилла Барн</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hero = document.getElementById('hero');
+      requestAnimationFrame(() => {
+        hero.classList.add('fade-up-active');
+      });
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add('is-visible');
+              }, index * 140);
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+
+      document.querySelectorAll('.rule-card').forEach((card) => observer.observe(card));
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
